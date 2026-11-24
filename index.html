@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Polished Cleaning Service | House &amp; Office Cleaning in Worcester, MA</title>
+<meta name="description" content="Polished Cleaning Service (formerly Anna's Cleaning), Worcester MA. Regular and deep house cleaning, move-in/move-out, windows, offices and retail. Background-checked team, pet-friendly, eco products, 100% satisfaction. 5.0 stars on Google. Nearly 20 years in business.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap">
+<style>
+/* Polished Cleaning — mixed references + their brand:
+   Brightwork (Framer cleaning): quote bar right in the hero (bedrooms · bathrooms · how often), numbered service rows.
+   Swept (Framer cleaning): "Do we come to you?" ZIP check + 4-point trust grid (insured/same cleaner/re-clean style).
+   Cleaning Service (Framer): drag before/after slider.
+   Brand: their Facebook cover + watercolour logo — mint/aqua field, hot-pink glove, yellow spray bottle, gold script; playful
+   tone and lots of pets in their posts. US cleaning standard: services + what's included, quote form, service area,
+   background-checked, eco/pet-friendly, satisfaction guarantee, reviews, before/after. */
+:root {
+  --mint: #bfeee5; --mint-l: #e9f9f5; --aqua: #1f9e93; --aqua-d: #137067; --pink: #ec3f8c; --pink-d: #c92a73;
+  --sun: #ffd23a; --gold: #b98a2e; --ink: #1d2b2a; --mute: #536563; --paper: #fffdf9; --line: #e3ece9;
+  --head: "Lexend", system-ui, sans-serif; --body: "Quicksand", "Segoe UI", system-ui, sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+html, body { overflow-x: clip; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 500 17.5px/1.65 var(--body); }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--pink); outline-offset: 3px; }
+section[id] { scroll-margin-top: 76px; }
+.wrap { max-width: 1200px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--head); font-weight: 600; margin: 0; line-height: 1.08; letter-spacing: -.02em; }
+.demo { background: var(--ink); color: #dcebe8; font: 600 13px/1.4 var(--body); text-align: center; padding: 7px 12px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font: 600 16px/1 var(--head); padding: 16px 24px; border-radius: 999px; background: var(--pink); color: #fff; text-decoration: none; border: 0; cursor: pointer; transition: transform .15s, background .15s; }
+.btn:hover { background: var(--pink-d); transform: translateY(-2px); }
+.btn.ink { background: var(--ink); } .btn.ink:hover { background: #000; }
+.btn.ghost { background: #fff; color: var(--ink); border: 1.5px solid var(--line); }
+.pill { display: inline-flex; align-items: center; gap: 8px; font: 700 13.5px/1 var(--body); padding: 8px 13px; border-radius: 999px; background: #fff; color: var(--aqua-d); }
+.pill i { width: 8px; height: 8px; border-radius: 50%; background: var(--pink); }
+
+header.top { position: sticky; top: 0; z-index: 40; background: rgba(255,253,249,.96); border-bottom: 1px solid var(--line); }
+header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding-block: 8px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.brand img { width: 58px; height: 58px; border-radius: 50%; object-fit: cover; }
+.brand b { display: block; font: 600 19px/1.05 var(--head); }
+.brand small { display: block; font: 700 12px/1.2 var(--body); color: var(--mute); }
+.top nav { display: flex; align-items: center; gap: 24px; font: 600 15.5px/1 var(--body); }
+.top nav a:not(.btn) { text-decoration: none; }
+.top nav a:not(.btn):hover { color: var(--pink-d); }
+.top nav .btn { padding: 12px 18px; font-size: 15px; }
+.menu-btn { display: none; background: var(--mint-l); border: 1px solid var(--line); border-radius: 999px; padding: 10px 15px; font: 700 14px/1 var(--body); color: var(--ink); cursor: pointer; align-items: center; gap: 8px; }
+.menu-btn i { display: grid; gap: 4px; } .menu-btn i b { display: block; width: 16px; height: 2px; background: var(--ink); border-radius: 2px; }
+.drop { display: none; position: fixed; left: 12px; right: 12px; z-index: 45; background: #fff; border-radius: 20px; box-shadow: 0 24px 50px rgba(29,43,42,.25); overflow: hidden; }
+.drop.open { display: block; }
+.drop a { display: block; padding: 16px 22px; font: 600 21px/1 var(--head); text-decoration: none; border-top: 1px solid var(--line); }
+.drop a:first-child { border-top: 0; }
+.scrim { display: none; position: fixed; inset: 0; z-index: 35; background: rgba(29,43,42,.35); }
+.scrim.open { display: block; }
+
+/* hero: mint field from their cover + Brightwork quote bar */
+.hero { background: var(--mint); position: relative; overflow: hidden; }
+.hero .wrap { display: grid; grid-template-columns: 1.05fr .95fr; gap: 40px; align-items: center; padding-block: 52px 64px; }
+.hero h1 { font-size: clamp(44px, 5.8vw, 76px); margin: 18px 0 16px; }
+.hero h1 span { color: var(--pink); }
+.hero p { margin: 0 0 26px; font-size: 19px; color: #2f4442; max-width: 44ch; }
+.qbar { display: flex; align-items: center; gap: 8px; background: #fff; border-radius: 999px; padding: 8px; box-shadow: 0 16px 34px rgba(19,112,103,.18); flex-wrap: wrap; max-width: 620px; }
+.qbar select { appearance: none; font: 700 15px/1 var(--body); color: var(--ink); background: var(--mint-l); border: 0; border-radius: 999px; padding: 13px 30px 13px 15px; cursor: pointer; background-image: linear-gradient(45deg, transparent 50%, var(--ink) 50%), linear-gradient(135deg, var(--ink) 50%, transparent 50%); background-position: calc(100% - 15px) 52%, calc(100% - 10px) 52%; background-size: 5px 5px; background-repeat: no-repeat; }
+.qbar .btn { margin-left: auto; padding: 14px 20px; }
+.hero .note { margin-top: 16px; font: 700 14.5px/1.4 var(--body); color: var(--aqua-d); display: flex; gap: 16px; flex-wrap: wrap; }
+.art { position: relative; }
+.art .cover { border-radius: 28px; overflow: hidden; box-shadow: 0 30px 60px rgba(19,112,103,.25); aspect-ratio: 4 / 3.4; }
+.art .cover img { width: 100%; height: 100%; object-fit: cover; object-position: 60% 50%; }
+.art .card { position: absolute; left: -22px; bottom: -26px; background: #fff; border-radius: 20px; padding: 12px 16px 12px 12px; display: flex; gap: 12px; align-items: center; box-shadow: 0 18px 36px rgba(29,43,42,.2); max-width: 300px; }
+.art .card img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; flex: none; }
+.art .card b { font: 600 16px/1.2 var(--head); display: block; }
+.art .card small { font: 600 13.5px/1.3 var(--body); color: var(--mute); }
+.art .stamp { position: absolute; right: -14px; top: -18px; width: 112px; height: 112px; border-radius: 50%; background: var(--sun); display: grid; place-items: center; text-align: center; font: 700 14px/1.15 var(--head); transform: rotate(8deg); box-shadow: 0 12px 24px rgba(0,0,0,.15); }
+.art .stamp b { display: block; font-size: 30px; }
+
+/* Swept trust grid */
+.trust .wrap { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-bottom: 1px solid var(--line); }
+.trust div { display: flex; gap: 12px; align-items: flex-start; padding: 26px 18px 26px 0; }
+.trust div + div { padding-left: 18px; border-left: 1px solid var(--line); }
+.trust i { width: 42px; height: 42px; border-radius: 50%; background: var(--mint-l); display: grid; place-items: center; flex: none; font-style: normal; font-size: 19px; }
+.trust b { display: block; font: 600 17px/1.2 var(--head); }
+.trust span { font-size: 15px; color: var(--mute); }
+
+section { padding-block: clamp(64px, 8vw, 104px); }
+.sh { max-width: 640px; margin-bottom: 36px; }
+.sh h2 { font-size: clamp(36px, 4.6vw, 56px); margin-top: 14px; }
+.sh p { color: var(--mute); font-size: 18px; margin: 12px 0 0; }
+
+/* Brightwork numbered service rows + side panel */
+.svc .grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 34px; align-items: start; }
+.rows { border-top: 1px solid var(--line); }
+.row { width: 100%; text-align: left; display: grid; grid-template-columns: 44px 1fr 36px; gap: 14px; align-items: center; padding: 20px 14px; border: 0; border-bottom: 1px solid var(--line); background: none; font: inherit; color: inherit; cursor: pointer; border-radius: 14px; }
+.row .n { font: 600 14px/1 var(--head); color: var(--mute); }
+.row h3 { font-size: 24px; }
+.row small { display: block; font: 600 14.5px/1.3 var(--body); color: var(--mute); margin-top: 4px; }
+.row .go { width: 36px; height: 36px; border-radius: 50%; background: #fff; border: 1px solid var(--line); display: grid; place-items: center; font: 700 18px/1 var(--head); }
+.row[aria-selected="true"] { background: var(--mint-l); }
+.row[aria-selected="true"] h3 { color: var(--aqua-d); }
+.row[aria-selected="true"] .go { background: var(--pink); color: #fff; border-color: var(--pink); }
+.panel { background: #fff; border: 1px solid var(--line); border-radius: 24px; padding: 26px; position: sticky; top: 96px; }
+.panel h3 { font-size: 28px; margin-bottom: 6px; }
+.panel p { color: var(--mute); margin: 0 0 14px; }
+.panel ul { list-style: none; margin: 0 0 20px; padding: 0; display: grid; gap: 9px; }
+.panel li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; font-size: 16px; }
+.panel li::before { content: "✓"; width: 22px; height: 22px; border-radius: 50%; background: var(--mint); color: var(--aqua-d); display: grid; place-items: center; font: 700 12px/1 var(--head); }
+
+/* before / after (Cleaning Service template) */
+.ba { background: var(--mint-l); }
+.ba .grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 40px; align-items: center; }
+.tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 22px; }
+.tabs button { font: 700 15px/1 var(--body); padding: 11px 16px; border-radius: 999px; border: 1.5px solid #cfe3de; background: #fff; color: var(--ink); cursor: pointer; }
+.tabs button[aria-pressed="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+.cmp { position: relative; width: min(440px, 100%); aspect-ratio: 1; border-radius: 24px; overflow: hidden; justify-self: center; box-shadow: 0 24px 48px rgba(19,112,103,.2); user-select: none; touch-action: pan-y; background: #ddd; }
+.cmp img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+.cmp .after { clip-path: inset(0 0 0 var(--x, 50%)); }
+.cmp .bar { position: absolute; top: 0; bottom: 0; left: var(--x, 50%); width: 3px; background: #fff; transform: translateX(-50%); pointer-events: none; }
+.cmp .knob { position: absolute; top: 50%; left: var(--x, 50%); width: 46px; height: 46px; border-radius: 50%; background: #fff; transform: translate(-50%, -50%); display: grid; place-items: center; font: 700 16px/1 var(--head); box-shadow: 0 6px 16px rgba(0,0,0,.25); pointer-events: none; }
+.cmp .tag { position: absolute; top: 12px; font: 700 13px/1 var(--body); padding: 7px 10px; border-radius: 999px; background: rgba(29,43,42,.8); color: #fff; }
+.cmp .tag.l { left: 12px; } .cmp .tag.r { right: 12px; background: var(--pink); }
+.cmp input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; margin: 0; }
+.ba .hint { font: 600 14px/1.3 var(--body); color: var(--mute); margin-top: 14px; }
+
+/* about Izzy + pets */
+.about .grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 44px; align-items: center; }
+.izzy { position: relative; }
+.izzy { max-width: 360px; justify-self: center; width: 100%; }
+.izzy > img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 28px; }
+.izzy .pets { position: absolute; right: -14px; bottom: -20px; display: flex; }
+.izzy .pets img { width: 74px; height: 74px; border-radius: 50%; border: 4px solid var(--paper); margin-left: -16px; }
+.about h2 { font-size: clamp(34px, 4.4vw, 52px); margin: 14px 0 16px; }
+.about p { color: var(--mute); font-size: 18px; }
+.facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 22px; }
+.facts div { background: var(--mint-l); border-radius: 18px; padding: 16px; }
+.facts b { display: block; font: 600 28px/1 var(--head); color: var(--aqua-d); }
+.facts span { font-size: 14.5px; color: var(--mute); }
+
+/* reviews */
+.rgrid { columns: 3 280px; column-gap: 16px; }
+.rv-card { break-inside: avoid; margin: 0 0 16px; background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 22px; }
+.rv-card .st { color: var(--sun); letter-spacing: 3px; -webkit-text-stroke: .5px var(--gold); }
+.rv-card p { margin: 8px 0 10px; font-size: 16.5px; }
+.rv-card cite { font-style: normal; font: 700 14px/1 var(--body); color: var(--mute); }
+
+/* quote + zip */
+.quote { background: var(--ink); color: #fff; }
+.quote .grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 44px; align-items: start; }
+.quote h2 { font-size: clamp(36px, 4.6vw, 56px); margin: 14px 0 14px; }
+.quote .lead { color: #c4d6d3; font-size: 18px; }
+.zip { background: rgba(255,255,255,.08); border-radius: 22px; padding: 22px; margin-top: 22px; }
+.zip b { font: 600 19px/1.2 var(--head); display: block; margin-bottom: 10px; }
+.zip .row2 { display: flex; gap: 8px; }
+.zip input { flex: 1; min-width: 0; font: 600 16.5px/1 var(--body); padding: 14px 16px; border-radius: 999px; border: 0; }
+.zip .btn { padding: 14px 18px; background: var(--sun); color: var(--ink); }
+.zip output { display: block; margin-top: 10px; font: 600 15px/1.4 var(--body); color: var(--mint); min-height: 1.4em; }
+.contact-alt { margin-top: 22px; display: grid; gap: 8px; font-size: 16px; color: #c4d6d3; }
+.contact-alt a { color: #fff; font-weight: 700; }
+.contact-alt a, .contact-alt span { overflow-wrap: anywhere; }
+.quote .grid > *, .about .grid > *, .ba .grid > *, .svc .grid > *, .hero .wrap > * { min-width: 0; }
+form.card { background: #fff; color: var(--ink); border-radius: 26px; padding: 28px; min-width: 0; }
+form.card h3 { font-size: 26px; margin-bottom: 16px; }
+.f { display: grid; gap: 7px; font: 700 14.5px/1.2 var(--body); margin-bottom: 15px; min-width: 0; }
+.f input, .f select, .f textarea { font: 500 16.5px/1.4 var(--body); padding: 13px 14px; border: 1.5px solid #d6e2df; border-radius: 12px; background: var(--paper); color: var(--ink); width: 100%; }
+.f textarea { min-height: 80px; resize: vertical; }
+.f input:focus, .f select:focus, .f textarea:focus { outline: 2px solid var(--aqua); border-color: var(--aqua); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips label { position: relative; }
+.chips input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.chips span { display: inline-block; padding: 10px 14px; border-radius: 999px; border: 1.5px solid #d6e2df; font: 700 14.5px/1 var(--body); background: var(--paper); }
+.chips input:checked + span { background: var(--aqua); border-color: var(--aqua); color: #fff; }
+.chips input:focus-visible + span { outline: 3px solid var(--pink); outline-offset: 2px; }
+.three { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.err { display: none; color: #b3261e; font: 700 14.5px/1.4 var(--body); margin: -4px 0 12px; }
+.err.show { display: block; }
+.sendrow { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.fine { font-size: 13.5px; color: var(--mute); margin: 12px 0 0; }
+
+footer { background: #101a19; color: #b9ccc8; padding-block: 40px 110px; text-align: center; font-size: 15.5px; }
+footer img { width: 84px; height: 84px; border-radius: 50%; margin: 0 auto 12px; }
+footer b { display: block; font: 600 22px/1.2 var(--head); color: #fff; margin-bottom: 6px; }
+.dock { position: fixed; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); z-index: 30; display: none; gap: 8px; }
+.dock a { flex: 1; display: flex; align-items: center; justify-content: center; text-decoration: none; font: 600 16px/1 var(--head); padding: 16px 10px; border-radius: 999px; box-shadow: 0 10px 24px rgba(29,43,42,.3); }
+.dock .call { flex: 0 0 34%; background: #fff; color: var(--ink); }
+.dock .bk { background: var(--pink); color: #fff; }
+.rv { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+.rv.in { opacity: 1; transform: none; }
+
+@media (max-width: 1000px) {
+  .top nav { display: none; } .menu-btn { display: inline-flex; }
+  .hero .wrap, .svc .grid, .ba .grid, .about .grid, .quote .grid { grid-template-columns: minmax(0, 1fr); }
+  .art { max-width: 560px; margin: 10px auto 30px; width: 100%; }
+  .panel { position: static; }
+  .trust .wrap { grid-template-columns: 1fr 1fr; }
+  .trust div:nth-child(3) { padding-left: 0; border-left: 0; }
+  .trust div:nth-child(n+3) { border-top: 1px solid var(--line); }
+}
+@media (max-width: 640px) {
+  .brand img { width: 48px; height: 48px; } .brand b { font-size: 17px; } .brand small { display: none; }
+  .hero .wrap { padding-block: 34px 50px; }
+  .hero h1 { font-size: 42px; }
+  .qbar { border-radius: 22px; }
+  .qbar select { flex: 1 1 40%; }
+  .qbar .btn { flex: 1 1 100%; margin-left: 0; }
+  .art .card { left: 8px; bottom: -22px; max-width: 260px; }
+  .art .stamp { right: 6px; width: 92px; height: 92px; font-size: 12.5px; } .art .stamp b { font-size: 24px; }
+  .trust .wrap { grid-template-columns: 1fr; }
+  .trust div { padding-left: 0 !important; border-left: 0 !important; border-top: 1px solid var(--line); }
+  .trust div:first-child { border-top: 0; }
+  .row h3 { font-size: 20px; }
+  .facts { grid-template-columns: 1fr 1fr 1fr; gap: 8px; } .facts div { padding: 12px; } .facts b { font-size: 22px; }
+  .izzy .pets { right: 8px; } .izzy .pets img { width: 58px; height: 58px; }
+  .three { grid-template-columns: 1fr 1fr; } .three .f:last-child { grid-column: 1 / -1; }
+  .two, .sendrow { grid-template-columns: 1fr; gap: 0; }
+  .sendrow { gap: 10px; }
+  form.card { padding: 22px 16px; }
+  .dock { display: flex; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } .rv { opacity: 1; transform: none; } html { scroll-behavior: auto; } }
+</style>
+<style>body{margin:0}</style>
+</head>
+<body>
+
+<div class="demo">Demo website made for Polished Cleaning Service.</div>
+
+<header class="top"><div class="wrap">
+  <a class="brand" href="#top" aria-label="Polished Cleaning Service home"><img src="img/logo.webp" alt="" width="58" height="58"><span><b>Polished</b><small>Cleaning Service · Worcester</small></span></a>
+  <nav aria-label="Primary"><a href="#services">Services</a><a href="#results">Before &amp; after</a><a href="#about">About Izzy</a><a href="#reviews">Reviews</a><a class="btn" href="#quote">Get a free quote</a></nav>
+  <button class="menu-btn" type="button" id="menuBtn" aria-expanded="false" aria-controls="drop"><i><b></b><b></b><b></b></i>Menu</button>
+</div></header>
+<div class="scrim" id="scrim"></div>
+<nav class="drop" id="drop" aria-label="Menu"><a href="#services">Services</a><a href="#quote">Get a free quote</a><a href="#results">Before &amp; after</a><a href="#about">About Izzy</a><a href="#reviews">Reviews</a></nav>
+
+<div class="hero" id="top"><div class="wrap">
+  <div>
+    <span class="pill rv"><i></i>Worcester's cleaners for almost 20 years</span>
+    <h1 class="rv">Come home to a house that <span>sparkles.</span></h1>
+    <p class="rv">Regular and deep cleaning for homes, condos, offices and shops. A background-checked team, eco-friendly products, and pets are always welcome.</p>
+    <form class="qbar rv" id="qbar" aria-label="Quick quote">
+      <select name="bed" aria-label="Bedrooms"><option>1 bedroom</option><option selected>2 bedrooms</option><option>3 bedrooms</option><option>4+ bedrooms</option></select>
+      <select name="bath" aria-label="Bathrooms"><option>1 bathroom</option><option selected>2 bathrooms</option><option>3+ bathrooms</option></select>
+      <select name="freq" aria-label="How often"><option>One-time</option><option selected>Every 2 weeks</option><option>Weekly</option><option>Monthly</option></select>
+      <button class="btn" type="submit">Get my quote</button>
+    </form>
+    <div class="note rv"><span>★ 5.0 on Google</span><span>100% satisfaction</span><span>Formerly Anna's Cleaning</span></div>
+  </div>
+  <div class="art rv">
+    <div class="cover"><img src="img/cover.webp" alt="Pink cleaning glove holding a yellow spray bottle on mint — the Polished look" width="960" height="640"></div>
+    <div class="stamp" aria-hidden="true"><span><b>5.0★</b>Google</span></div>
+    <div class="card"><img src="img/izzy.webp" alt="Izabela with a client's dog"><span><b>Hi, I'm Izzy!</b><small>I'll treat your home (and your pets) like my own.</small></span></div>
+  </div>
+</div></div>
+
+<div class="trust"><div class="wrap">
+  <div class="rv"><i aria-hidden="true">🛡️</i><span><b>Background-checked</b>Every team member, before they start</span></div>
+  <div class="rv"><i aria-hidden="true">🌿</i><span><b>Eco-friendly products</b>Safe for kids and pets</span></div>
+  <div class="rv"><i aria-hidden="true">🐾</i><span><b>Pet-friendly</b>Dogs and cats love Izzy</span></div>
+  <div class="rv"><i aria-hidden="true">✨</i><span><b>100% satisfaction</b>Not happy? We make it right</span></div>
+</div></div>
+
+<section class="svc" id="services"><div class="wrap">
+  <div class="sh rv"><span class="pill" style="background:var(--mint-l)"><i></i>Services</span><h2>What we clean</h2><p>Every clean is customised to your space. Tap a service to see what's included.</p></div>
+  <div class="grid">
+    <div class="rows" role="tablist" aria-label="Services" id="rows">
+      <button class="row" role="tab" aria-selected="true" data-i="0"><span class="n">01</span><span><h3>Regular house cleaning</h3><small>Weekly, every 2 weeks or monthly</small></span><span class="go" aria-hidden="true">→</span></button>
+      <button class="row" role="tab" aria-selected="false" data-i="1"><span class="n">02</span><span><h3>Deep cleaning</h3><small>Ovens, baseboards, stains, the works</small></span><span class="go" aria-hidden="true">→</span></button>
+      <button class="row" role="tab" aria-selected="false" data-i="2"><span class="n">03</span><span><h3>Move-in &amp; move-out</h3><small>Empty-home cleans for tenants, owners and realtors</small></span><span class="go" aria-hidden="true">→</span></button>
+      <button class="row" role="tab" aria-selected="false" data-i="3"><span class="n">04</span><span><h3>Windows, inside &amp; out</h3><small>Streak-free glass, frames and sills</small></span><span class="go" aria-hidden="true">→</span></button>
+      <button class="row" role="tab" aria-selected="false" data-i="4"><span class="n">05</span><span><h3>Office &amp; studio cleaning</h3><small>Workplaces, studios and small offices</small></span><span class="go" aria-hidden="true">→</span></button>
+      <button class="row" role="tab" aria-selected="false" data-i="5"><span class="n">06</span><span><h3>Shops &amp; retail</h3><small>Shopping centers and retail outlets</small></span><span class="go" aria-hidden="true">→</span></button>
+    </div>
+    <div class="panel rv" id="panel" role="tabpanel" aria-live="polite"></div>
+  </div>
+</div></section>
+
+<section class="ba" id="results"><div class="wrap grid">
+  <div class="rv">
+    <span class="pill"><i></i>Real results</span>
+    <h2 style="font-size:clamp(36px,4.6vw,56px);margin-top:14px">Before &amp; after</h2>
+    <p style="color:var(--mute);font-size:18px">Real jobs from our clients' homes. Drag the slider to see the difference.</p>
+    <div class="tabs" role="group" aria-label="Choose a job">
+      <button type="button" data-k="oven" aria-pressed="true">Oven</button><button type="button" data-k="tub" aria-pressed="false">Bathtub</button><button type="button" data-k="floor" aria-pressed="false">Tile floor</button><button type="button" data-k="switch" aria-pressed="false">Light switch</button>
+    </div>
+  </div>
+  <div class="rv" style="display:grid">
+    <div class="cmp" id="cmp" style="--x:50%">
+      <img id="bImg" src="img/oven_before.webp" alt="Oven before cleaning">
+      <img class="after" id="aImg" src="img/oven_after.webp" alt="Oven after cleaning">
+      <span class="tag l">Before</span><span class="tag r">After</span>
+      <span class="bar"></span><span class="knob" aria-hidden="true">⇆</span>
+      <input type="range" min="0" max="100" value="50" id="cmpR" aria-label="Drag to compare before and after">
+    </div>
+    <p class="hint" style="text-align:center">← drag to compare →</p>
+  </div>
+</div></section>
+
+<section class="about" id="about"><div class="wrap grid">
+  <div class="izzy rv">
+    <img src="img/izzy2.webp" alt="Izzy deep-cleaning a shower" loading="lazy">
+    <div class="pets" aria-hidden="true"><img src="img/pet1.webp" alt=""><img src="img/pet2.webp" alt=""><img src="img/pet3.webp" alt=""></div>
+  </div>
+  <div>
+    <span class="pill rv" style="background:var(--mint-l)"><i></i>Meet the owner</span>
+    <h2 class="rv">Same team, new name.</h2>
+    <p class="rv">Polished is Izabela's cleaning business. It has been cleaning Worcester homes for almost 20 years, and recently changed its name from Anna's Cleaning. Some of our clients have been with us for close to 15 years, and most new ones come from their recommendations.</p>
+    <p class="rv">We work in homes with kids and pets, use products that keep your space clean and free of harsh toxins, and we don't leave until it's right.</p>
+    <div class="facts rv"><div><b>~20</b><span>years cleaning</span></div><div><b>5.0★</b><span>Google rating</span></div><div><b>15 yrs</b><span>longest client</span></div></div>
+  </div>
+</div></section>
+
+<section id="reviews" style="background:#fff"><div class="wrap">
+  <div class="sh rv"><span class="pill" style="background:var(--mint-l)"><i></i>Reviews</span><h2>Our clients say it best</h2><p>5.0 stars from 53 Google reviews.</p></div>
+  <div class="rgrid">
+    <figure class="rv-card rv"><div class="st">★★★★★</div><p>"Izabela and her associate did a spectacular job deep cleaning my condominium! They worked nonstop from the minute they arrived until they were finished."</p><cite>Condo owner, Worcester</cite></figure>
+    <figure class="rv-card rv"><div class="st">★★★★★</div><p>"Izabella and her team have worked with us for close to 15 years. They are trustworthy, thorough, and affordable."</p><cite>Family client</cite></figure>
+    <figure class="rv-card rv"><div class="st">★★★★★</div><p>"I have hired her both at my business and my home. Attention to detail. Serious stains treated or removed. Deep clean of oven. She did such a great job at my yoga studio."</p><cite>Studio owner</cite></figure>
+    <figure class="rv-card rv"><div class="st">★★★★★</div><p>"I am a mortgage lender who works with local realtors. I referred Polished Cleaning for a very touch job. Every time I talk with the realtor she tells how great they were!"</p><cite>Mortgage lender</cite></figure>
+    <figure class="rv-card rv"><div class="st">★★★★★</div><p>"Izzy is reliable, professional, and does an excellent job. She always leaves the house clean and fresh."</p><cite>Home client</cite></figure>
+    <figure class="rv-card rv"><div class="st">★★★★★</div><p>"Best company for cleaning! Not just the personal treatment, they use great products good for you and your pet."</p><cite>Pet owner</cite></figure>
+  </div>
+</div></section>
+
+<section class="quote" id="quote"><div class="wrap grid">
+  <div>
+    <span class="pill rv"><i></i>Free quote</span>
+    <h2 class="rv">Tell us about your space.</h2>
+    <p class="lead rv">Send the details and Izzy gets back to you with a price. No obligation.</p>
+    <div class="zip rv">
+      <b>Do we come to you?</b>
+      <form class="row2" id="zipF"><input id="zipI" inputmode="numeric" maxlength="5" placeholder="Your ZIP code, e.g. 01603" aria-label="ZIP code"><button class="btn" type="submit">Check</button></form>
+      <output id="zipO" aria-live="polite"></output>
+    </div>
+    <div class="contact-alt rv"><span>Prefer to talk? Call or text <a href="tel:+15083354191">(508) 335-4191</a></span><span>Email <a href="mailto:Izabela.sztejner@gmail.com">Izabela.sztejner@gmail.com</a></span><span>Mon – Sat</span></div>
+  </div>
+  <form class="card rv" id="form" novalidate>
+    <h3>Quote request</h3>
+    <div class="f"><span>Type of space</span><div class="chips" role="group" aria-label="Type of space">
+      <label><input type="radio" name="space" value="House" checked><span>House</span></label>
+      <label><input type="radio" name="space" value="Condo / apartment"><span>Condo / apt</span></label>
+      <label><input type="radio" name="space" value="Office / studio"><span>Office / studio</span></label>
+      <label><input type="radio" name="space" value="Shop / retail"><span>Shop</span></label></div></div>
+    <label class="f"><span>Service</span><select name="svc" id="svcSel"><option>Regular house cleaning</option><option>Deep cleaning</option><option>Move-in / move-out</option><option>Windows, inside &amp; out</option><option>Office &amp; studio cleaning</option><option>Shops &amp; retail</option></select></label>
+    <div class="three">
+      <label class="f"><span>Bedrooms</span><select name="bed"><option>1</option><option selected>2</option><option>3</option><option>4+</option><option>N/A</option></select></label>
+      <label class="f"><span>Bathrooms</span><select name="bath"><option>1</option><option selected>2</option><option>3+</option></select></label>
+      <label class="f"><span>How often</span><select name="freq"><option>One-time</option><option selected>Every 2 weeks</option><option>Weekly</option><option>Monthly</option></select></label>
+    </div>
+    <div class="two">
+      <label class="f"><span>Your name</span><input name="name" autocomplete="name"></label>
+      <label class="f"><span>Town or ZIP</span><input name="town" placeholder="Worcester 01603"></label>
+    </div>
+    <label class="f"><span>Anything we should know?</span><textarea name="note" placeholder="Pets, problem areas, preferred days…"></textarea></label>
+    <p class="err" id="err" role="alert"></p>
+    <div class="sendrow"><button class="btn" type="submit" data-via="sms">Text my request</button><button class="btn ink" type="submit" data-via="email">Email my request</button></div>
+    <p class="fine">Your request opens in your own texting or email app, ready to send to Izzy.</p>
+  </form>
+</div></section>
+
+<footer><img src="img/logo.webp" alt="Polished Cleaning Service logo"><b>Polished Cleaning Service</b>Worcester, MA · formerly Anna's Cleaning<br><a href="tel:+15083354191" style="color:#fff">(508) 335-4191</a> · <a href="https://www.facebook.com/PolishedMAwoo/" target="_blank" rel="noopener" style="color:#fff">Facebook</a></footer>
+<div class="dock"><a class="call" href="tel:+15083354191">Call</a><a class="bk" href="#quote">Get a free quote</a></div>
+
+<script>
+(() => {
+  const PHONE = '+15083354191', EMAIL = 'Izabela.sztejner@gmail.com';
+  const io = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .06 }) : null;
+  document.querySelectorAll('.rv').forEach(el => io ? io.observe(el) : el.classList.add('in'));
+  const btn = document.getElementById('menuBtn'), drop = document.getElementById('drop'), scrim = document.getElementById('scrim'), head = document.querySelector('header.top');
+  const close = () => { drop.classList.remove('open'); scrim.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); };
+  btn.onclick = () => { const o = !drop.classList.contains('open'); drop.style.top = (head.getBoundingClientRect().bottom + 8) + 'px'; drop.classList.toggle('open', o); scrim.classList.toggle('open', o); btn.setAttribute('aria-expanded', o); };
+  scrim.onclick = close; drop.querySelectorAll('a').forEach(a => a.onclick = close);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+
+  // services: numbered rows -> detail panel
+  const S = [
+    ['Regular house cleaning', 'Your home kept fresh on a schedule that suits you.', ['Kitchen counters, sink and appliance fronts', 'Bathrooms scrubbed and sanitised', 'Dusting of surfaces, shelves and baseboards', 'Vacuum and mop all floors', 'Beds made, trash emptied']],
+    ['Deep cleaning', 'A top-to-bottom reset, great for a first visit or spring cleaning.', ['Everything in a regular clean', 'Inside the oven and microwave', 'Stains treated or removed', 'Light switches, doors and frames wiped', 'Cabinet fronts and drawers']],
+    ['Move-in & move-out', 'An empty-home clean for tenants, landlords and realtors.', ['Inside cabinets, drawers and closets', 'Inside fridge and oven', 'Bathrooms and tile detailed', 'Floors, baseboards and window sills', 'Ready for keys or photos']],
+    ['Windows, inside & out', 'Clear, streak-free glass that lets the light in.', ['Interior and exterior glass', 'Frames, tracks and sills', 'Glass doors and mirrors', 'Add it to any clean']],
+    ['Office & studio cleaning', 'A clean workplace your team and clients notice.', ['Desks, surfaces and common areas', 'Kitchenettes and restrooms', 'Floors vacuumed and mopped', 'Flexible after-hours times']],
+    ['Shops & retail', 'Shopping centers and retail outlets kept customer-ready.', ['Sales floor and fitting rooms', 'Glass, displays and entrances', 'Restrooms and staff areas', 'Regular or one-time cleans']]
+  ];
+  const panel = document.getElementById('panel'), rows = [...document.querySelectorAll('#rows .row')], sel = document.getElementById('svcSel');
+  function show(i) {
+    rows.forEach((r, j) => r.setAttribute('aria-selected', i === j));
+    const [t, d, l] = S[i];
+    panel.innerHTML = '<h3>' + t + '</h3><p>' + d + '</p><ul>' + l.map(x => '<li>' + x + '</li>').join('') + '</ul><a class="btn" href="#quote" data-pick="' + i + '">Get a quote for this</a>';
+    panel.querySelector('[data-pick]').onclick = () => { sel.selectedIndex = i; };
+  }
+  rows.forEach((r, i) => r.onclick = () => show(i)); show(0);
+
+  // before / after
+  const cmp = document.getElementById('cmp'), r = document.getElementById('cmpR'), bI = document.getElementById('bImg'), aI = document.getElementById('aImg');
+  r.oninput = () => cmp.style.setProperty('--x', r.value + '%');
+  const names = { oven: 'Oven', tub: 'Bathtub', floor: 'Tile floor', switch: 'Light switch' };
+  document.querySelectorAll('.tabs button').forEach(b => b.onclick = () => {
+    document.querySelectorAll('.tabs button').forEach(x => x.setAttribute('aria-pressed', x === b));
+    bI.src = 'img/' + b.dataset.k + '_before.webp'; aI.src = 'img/' + b.dataset.k + '_after.webp';
+    bI.alt = names[b.dataset.k] + ' before cleaning'; aI.alt = names[b.dataset.k] + ' after cleaning';
+    r.value = 50; cmp.style.setProperty('--x', '50%');
+  });
+
+  // ZIP check (Worcester County 015xx/016xx)
+  document.getElementById('zipF').onsubmit = e => {
+    e.preventDefault(); const z = document.getElementById('zipI').value.trim(), o = document.getElementById('zipO');
+    if (!/^\d{5}$/.test(z)) { o.textContent = 'Please enter a 5-digit ZIP code.'; return; }
+    o.textContent = /^01[56]/.test(z) ? 'Yes! We clean in your area. Send your quote request →' : "You're a little outside our usual area, but ask us, we may still be able to help.";
+  };
+
+  // hero quick quote -> prefill the form
+  const f = document.getElementById('form');
+  document.getElementById('qbar').onsubmit = e => {
+    e.preventDefault(); const q = e.target;
+    f.bed.value = q.bed.value.split(' ')[0]; f.bath.value = q.bath.value.split(' ')[0]; f.freq.value = q.freq.value;
+    document.getElementById('quote').scrollIntoView({ behavior: 'smooth' });
+  };
+
+  // quote -> SMS or email
+  const err = document.getElementById('err'); let via = 'sms';
+  f.querySelectorAll('[data-via]').forEach(b => b.onclick = () => { via = b.dataset.via; });
+  f.addEventListener('submit', e => {
+    e.preventDefault();
+    if (!f.name.value.trim()) { err.textContent = 'Please add your name.'; err.classList.add('show'); return; }
+    err.classList.remove('show');
+    const space = f.querySelector('input[name=space]:checked').value;
+    const lines = ['Hi Izzy! I would like a cleaning quote.', '', 'Space: ' + space, 'Service: ' + f.svc.value, 'Bedrooms: ' + f.bed.value + ', bathrooms: ' + f.bath.value, 'How often: ' + f.freq.value, 'Name: ' + f.name.value.trim()];
+    if (f.town.value.trim()) lines.push('Town/ZIP: ' + f.town.value.trim());
+    if (f.note.value.trim()) lines.push('Notes: ' + f.note.value.trim());
+    lines.push('', 'Thank you!');
+    const body = encodeURIComponent(lines.join('\n'));
+    location.href = via === 'email' ? 'mailto:' + EMAIL + '?subject=' + encodeURIComponent('Cleaning quote request: ' + f.name.value.trim()) + '&body=' + body : 'sms:' + PHONE + '?&body=' + body;
+  });
+})();
+</script>
+
+<!-- jb-credit -->
+<div class="jb-credit" style="all:revert;display:block;margin:0;padding:14px 16px calc(14px + env(safe-area-inset-bottom,0px));background:#111;color:#cfcfcf;font:500 13px/1.5 system-ui,-apple-system,Segoe UI,Arial,sans-serif;text-align:center;position:relative;z-index:1">Website designed by <b style="color:#fff">Joseph Bortey</b> · <a href="tel:+233265768743" style="color:#fff;text-decoration:underline">026 576 8743</a></div>
+<style>@media (max-width:760px){.jb-credit{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))!important}}</style>
+<img src="https://hits.sh/josephbortey2003-droid.github.io/polished-demo.svg" alt="" width="1" height="1" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none" referrerpolicy="no-referrer" loading="eager">
+</body>
+</html>
